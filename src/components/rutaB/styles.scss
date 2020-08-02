@@ -1,0 +1,44 @@
+.contUpload{
+    display: flex;
+    justify-content: center;
+}
+
+.formulario{
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    
+    position: relative;
+  }
+  .container .wrapper{
+    position: relative;
+    height: 300px;
+    width: 500px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+ 
+  .input{
+      width: 100%;
+  }
+
+  .btn-input{
+      display: none;
+     
+     
+  }
+  .file-name{
+  width: 100%;
+  padding: 8px 0;
+  font-size: 18px;
+  color: #fff;
+  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+  }

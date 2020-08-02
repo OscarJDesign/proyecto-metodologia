@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+
+
+// --------------------------------------LOGIN--------------------------------------
+
+// Colors
+$greenSeaweed: rgba(2, 128, 144, 1);
+$blueQueen: rgba(69, 105, 144, 1);
+$redFire: rgba(244, 91, 105, 1);
+
+// Fonts
+$fontAsap: 'Asap', sans-serif;
+
+
+.contenedorGeneralLogin{
+ 
+  height: 100%;
+  width: 100%;
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+  
+  /* Add some content at the bottom of the video/page */
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Style the button used to pause/play the video */
+  #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
+
+  .logoOlimpiadas {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    .logo{
+    overflow: hidden;
+    position: absolute;
+    width: 20%; 
+    }
+  }
+
+  .login {
+    font-family: $fontAsap;
+    overflow: hidden;
+    background-color: rgb(187, 186, 186);
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 400px;
+    transform:translate(-50%, -50%);
+    transition:transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba($greenSeaweed, 0.2);
+    
+    .opcionesLogin{
+      color: white;
+      font-family: $fontAsap;
+      font-size: 12px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .link{
+      text-decoration: none;
+    }
+    .btnRegistro{
+        font-family: $fontAsap;
+        cursor: pointer;
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+        
+        border: 0;
+        padding: 12px 15px;
+        margin-top: 10px;
+        margin-left: -5px;
+        border-radius: 5px;
+        background-color: $redFire;
+        transition:background-color 300ms;
+        text-decoration: none;
+        &:hover {
+          background-color: darken($redFire, 5%);
+        }
+    }
+    .icono{
+      font-size: 30px;
+    }
+    .inputRegistro{
+      padding: 10px;
+      border-radius: 5px;
+      border:0;
+      margin-left: 20px;
+      width: 60%;
+      
+    }
+    .contenedorInput{
+      text-align: center;
+    }
+    .right{
+      float: right;
+    }
+
+    
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-top-left-radius: 40%;
+      border-top-right-radius: 45%;
+      border-bottom-left-radius: 35%;
+      border-bottom-right-radius: 40%;
+      z-index: -1;
+    }
+    
+    &::before {
+    
+      background-color:rgba(228, 129, 68, 0.84);
+      animation:wawes 6s infinite linear;
+    }
+    
+    &::after {
+      left: 35%;
+      bottom: -125%;
+      background-color:rgba(11, 60, 157, 0.82);
+      animation:wawes 7s infinite;
+    }
+    
+    > .user, .password, .vacio {
+      font-family: $fontAsap;
+      display: block;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: white;
+      width: 100%;
+      border: 0;
+      padding: 10px 10px;
+      margin: 15px -10px;
+      transition: background-color 1.2s ease;
+      
+    }
+    .user:focus{
+      
+      background-color: rgba(182, 181, 181, 0.335);
+    }
+    .password:focus{
+      background-color: rgba(182, 181, 181, 0.335); 
+    }
+    .recuperar{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      float: left;
+      .recuperarPass{
+        font-size: 12px;
+        font-family: 'Fredoka One', cursive;  
+        color: #070000;
+    &:hover{
+    cursor:pointer;
+    text-decoration: underline;
+    }
+      }
+    }
+    > .btnLogin {
+      font-family: $fontAsap;
+      cursor: pointer;
+      color: #fff;
+      font-size: 12px;
+      text-transform: uppercase;
+      width: 90px;
+      border: 0;
+      padding: 12px 15px;
+      float: right;
+      margin-top: 10px;
+      margin-left: -5px;
+      border-radius: 5px;
+      background-color: $redFire;
+      transition:background-color 300ms;
+      text-decoration: none;
+      &:hover {
+        background-color: darken($redFire, 5%);
+      }
+    }
+    .tituloLogin{
+      color:rgba(16, 19, 6, 0.84);
+      font-family: 'Acme', sans-serif;
+      font-size: 20px;
+      text-align: center;
+    }
+    .subTituloLogin{
+      font-family: 'Fredoka One', cursive; 
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .obtenerCuenta {
+    color: #6a82fb;
+    &:hover{
+    cursor:pointer;
+    text-decoration: underline;
+    }
+   }
+
+
+  @keyframes wawes {
+    from { transform:rotate(0); }
+    to { transform:rotate(360deg); }
+  }
+}
+
+

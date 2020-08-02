@@ -1,0 +1,51 @@
+.cont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.archivo{
+    width: 23%;
+}
+
+.imagenes{
+    width: 100%;
+    margin-top:  10px ;
+}
+
+.imagenes img{
+    width: 100%;
+    vertical-align: top;
+    border-radius: 3px;
+}
+
+.descripcion{
+    text-align: center;
+}
+
+.descripcion .nombre{
+    color: #3895ea;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.descripcion .categoria{
+    font-size: 14px;
+    color: #636363;
+}
+
+h1{
+    font-size: 34px;
+    line-height: 34px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.781);
+    margin: 80px 0px 50px 0px;
+    padding-top: 50px;
+}
+
+.archivo{
+    background: rgba(134, 131, 131, 0.048);
+    padding-bottom: 50px;
+}
