@@ -8,10 +8,12 @@ import {
 export default (state, action) => {
   switch (action.type) {
     case LOGIN_EXITOSO:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("token", action.token);
+      localStorage.setItem("usuario", action.payload);
       return {
         ...state,
         usuario: action.payload,
+        status: action.status,
       };
     case REGISTRAR_USUARIO:
       console.log(action.payload);

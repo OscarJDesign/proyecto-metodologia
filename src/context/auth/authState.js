@@ -5,6 +5,7 @@ import AuthContext from "./authContext";
 import ClienteAxios from "../../config/clienteAxios";
 import { LOGIN_EXITOSO, LOGIN_ERROR, REGISTRAR_USUARIO, CERRAR_SESION } from "../../types";
 import Axios from "axios";
+import clienteAxios from "../../config/clienteAxios";
 
 const AuthState = (props) => {
   //ESTADO INICIAL
@@ -12,7 +13,9 @@ const AuthState = (props) => {
   const initialState = {
     usuario: null,
     registro: null,
-    mensaje: ""
+    mensaje: "",
+    status: null
+
   };
 
   //FUNCION PARA EL DISPACH (LO QUE VA MODIFICANDO EL STATE)
@@ -21,19 +24,20 @@ const AuthState = (props) => {
 
   //INICIAR SESION
   const iniciarSesion = async (datos) => {
-    console.log(datos);
     try {
-      const respuesta = await Axios.post(
-        "https://ubb-grafico.herokuapp.com/login",
+      const respuesta = await clienteAxios.post(
+        "/login",
         datos
       );
-      console.log(respuesta.data);
+      console.log(respuesta)
       dispach({
         type: LOGIN_EXITOSO,
-        payload: respuesta.data,
+        payload: respuesta.data.id,
+        token: respuesta.data.token,
+        status: respuesta.status
       });
     } catch (error) {
-      console.log(error.response.data.message);
+      console.log(error.response);
       dispach({
         type: LOGIN_ERROR,
         payload: error.response.data.message,
@@ -46,7 +50,7 @@ const AuthState = (props) => {
     console.log(datos);
     try {
       const respuesta = await ClienteAxios.post(
-        "https://ubb-grafico.herokuapp.com/users",
+        "/users",
         datos
       );
       console.log(respuesta.data.data);
@@ -72,6 +76,7 @@ const AuthState = (props) => {
         usuario: state.usuario,
         registro: state.registro,
         mensaje: state.mensaje,
+        status: state.status,
         iniciarSesion,
         registrarUsuario,
         cerrarSesion,

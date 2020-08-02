@@ -10,11 +10,11 @@ import AuthState from './context/auth/authState';
 import tokenAuth from './config/token';
 
 function App() {
-  //COPIO TOKEN DEL LOCAL STORAGE
-  // const token = localStorage.getItem("token");
-  // if(token){
-  //   tokenAuth(token);
-  // }
+  // COPIO TOKEN DEL LOCAL STORAGE
+  const token = localStorage.getItem("token");
+  if(token){
+    tokenAuth(token);
+  }
   return (
     <>
     <AuthState>

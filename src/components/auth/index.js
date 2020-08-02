@@ -7,7 +7,7 @@ import Registro from "./Registro";
 
 const Login = () => {
   const authContext = useContext(AuthContext);
-  const { usuario, iniciarSesion, mensaje } = authContext;
+  const { usuario, iniciarSesion, mensaje, status } = authContext;
 
   const [mostrarRegistro, setMostrarRegistro] = useState(false);
 
@@ -25,7 +25,7 @@ const Login = () => {
       alert(mensaje);
       return;
     }
-  }, [mensaje])
+  }, [mensaje, status])
 
   //LEER CAMBIOS EN INPUT
   const leerInputs = (e) => {
@@ -106,7 +106,7 @@ const Login = () => {
               </button>
             </form>
 
-            {usuario === null ? null : usuario.code === 200 ? <Redirect to="/dashboard" /> : null}
+            {status === null ? null : status === 200 ? <Redirect to="/dashboard" /> : null}
             </>
           )}
         </div>
