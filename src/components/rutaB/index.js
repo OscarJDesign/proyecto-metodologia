@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import clienteAxios from "../../config/clienteAxios";
+import "./styles.scss";
+
 function RutaB() {
   const usuario = localStorage.getItem("usuario");
   const idUsuario = JSON.parse(usuario);
@@ -54,6 +56,7 @@ function RutaB() {
     }
     await clienteAxios.post("/posts", formularioPost).then(async (data) => {
       console.log(data.data, "POST CREADO");
+      alert("PUBLICACION SE HA CREADO")
       setFormlarioPost({
         titulo: "",
         descripcion: "",
@@ -89,47 +92,69 @@ function RutaB() {
   };
 
   return (
-    <div>
+  <>
+  <section>
+    <div className="contPublicacion">
       <form onSubmit={onSubmitPost}>
-        <p>Título</p>
-        <input
-          type="text"
-          name="titulo"
-          value={titulo}
-          onChange={onChangePost}
-        />
-        <p>Descripción</p>
-        <input
-          type="text"
-          name="descripcion"
-          value={descripcion}
-          onChange={onChangePost}
-        />
-        <br />
+      <div className="flex">
+        <div className="contInputs">
+        
+          <h1>Crear Publicacion</h1>
+            <div className="titulo">
+              <p>Título</p>
+              <input
+                className="tituloInterior"
+                type="text"
+                name="titulo"
+                value={titulo}
+                onChange={onChangePost}
+              />
+            </div>
+            <div >
+              <p>Descripción</p>
+              <input
+                className="des"
+                type="text"
+                name="descripcion"
+                value={descripcion}
+                onChange={onChangePost}
+              />
+            </div>
 
-        <input
-          type="file"
-          name="imagen"
-          id="imagen"
-          onChange={onChangeImagen}
-        />
-        <label htmlFor="imagen">Subir Imagen</label>
-        <br />
+              <br />
+            <div className="imagen">
+            <p>Imagen</p>
+              <input className="img"
+                type="file"
+                name="imagen"
+                id="imagen"
+                onChange={onChangeImagen}
+              />
 
-        <input type="file" name="video" id="video" onChange={onChangeVideo} />
-        <label htmlFor="video">Subir Video</label>
-        <br />
-        <button type="submit">Crear Post</button>
+            </div>
+              <br />
+            <div className="video">
+              <p>Video</p>
+              <input type="file" name="video" id="video" onChange={onChangeVideo} />
+            </div>
+            <br />
+            <button className="btn-crear" type="submit">Publicar</button>
+          </div>
+        </div>
       </form>
 
-      <h1>TODOS LOS POST</h1>
-      <ul>
+      
+    </div>
+    <div className="contPost">
+    <h1>TODOS LOS POST</h1>
+
+      <ul className="flexx">
         {todosPost.map((post) => (
-          <li key={post.id}>
+          <li className="publicacion" key={post.id}>
             <p>{post.titulo}</p>
             <p>{post.descripcion}</p>
-            <img src={`http://localhost:8080${post.imagen}`} />
-            {/* <video width="320" height="240" controls>
+            <img className="" src={`http://localhost:8080${post.imagen}` } />
+            <video width="220" height="240" controls>
               <source
                 src={`http://localhost:8080${post.video}`}
                 src="movie.mp4"
@@ -140,12 +165,19 @@ function RutaB() {
                 src="movie.ogg"
                 type="video/ogg"
               />
-              Your browser does not support the video tag.
-            </video> */}
+             
+            </video>
           </li>
         ))}
       </ul>
     </div>
+
+        <div className="wave wave1"></div>
+        <div className="wave wave2"></div>
+        <div className="wave wave3"></div>
+        <div className="wave wave4"></div>
+        </section>
+  </>
   );
 }
 
